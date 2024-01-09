@@ -21,3 +21,10 @@ docker logout
 docker image history <>
 ```
 
+```bash
+# offline image loading
+docker image save -o <output_image_name> <image_name>
+docker image load -i <output_image_name>
+
+```
+
