@@ -28,3 +28,37 @@ Raft Database(internal distributed state store between managers node)
    - executer (executes tasks assigned to worker node)
 
 ---
+
+## Swarm cluster
+```bash
+
+docker info
+docker swarm init
+docker swarm init --advertise-addr=IP
+docker swarm leave
+docker swarm leave --force
+
+docker swarm join-token manager
+docker swarm join-token worker
+
+docker node ls # ( in manager nodes)
+docker node promote < WORKER_NAME >
+docker node demote < WORKER_NAME >
+
+docker service create --name < SERVICE_NAME > --replicas <REPLICA_COUNT> <IMAGE> <COMMAND>
+
+docker service ls 
+docker service ps <SERVICE_NAME>
+
+docker node ps # containers on each manager node
+docker node ps <NODE_NAME>
+docker container ls # for worker nodes
+
+docker service logs -f < SERVICE_NAME >
+
+docker service rm < SERVICE_NAME > # swarm doesnt have stop service
+
+docker service update < SERVICE_NAME > --replicas <NEW_REPLICA_COUNT>
+
+
+```
